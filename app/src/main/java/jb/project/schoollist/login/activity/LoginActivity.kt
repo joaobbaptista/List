@@ -23,17 +23,13 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import jb.project.schoollist.BaseActivity
 import jb.project.schoollist.R
 
 import kotlinx.android.synthetic.main.activity_login.*
 
-/**
- * A login screen that offers login via email/password.
- */
-class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
+
+class LoginActivity : BaseActivity(), LoaderCallbacks<Cursor> {
     private var mAuthTask: UserLoginTask? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
