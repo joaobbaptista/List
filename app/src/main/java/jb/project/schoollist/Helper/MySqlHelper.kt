@@ -22,16 +22,16 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable("Person", true,
-                "person_id" to INTEGER + PRIMARY_KEY,
+        db.createTable("User", true,
+                "user_id" to INTEGER + PRIMARY_KEY,
                 "email" to TEXT,
                 "password" to TEXT)
 
         db.createTable("notes", true,
                 "note_id" to INTEGER + PRIMARY_KEY,
-                FOREIGN_KEY("person_id", "Person", "person_id"),
+                FOREIGN_KEY("user_id", "User", "user_id"),
                 "title" to TEXT,
-                "body" to TEXT)
+                "content" to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

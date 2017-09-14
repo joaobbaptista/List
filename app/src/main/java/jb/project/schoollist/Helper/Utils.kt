@@ -7,6 +7,6 @@ import android.text.TextUtils
  */
 class Utils {
       fun isValidEmail(email: String): Boolean {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return !email.isBlank() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }
