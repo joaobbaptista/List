@@ -23,13 +23,14 @@ class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable("User", true,
-                "user_id" to INTEGER + PRIMARY_KEY,
+                "_id" to INTEGER + PRIMARY_KEY,
                 "email" to TEXT,
                 "password" to TEXT)
 
-        db.createTable("notes", true,
-                "note_id" to INTEGER + PRIMARY_KEY,
-                FOREIGN_KEY("user_id", "User", "user_id"),
+        db.createTable("Notes", true,
+                "_id" to INTEGER + PRIMARY_KEY,
+                "user_id" to INTEGER,
+                //TODO(verify how to use foreign key in anko) -> FOREIGN_KEY("user_id", "User", "_id"),
                 "title" to TEXT,
                 "content" to TEXT)
     }
